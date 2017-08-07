@@ -47,7 +47,7 @@
       //
       $http.get(questionsURL)
         .then(results => {
-          console.log("Questions ----- " , results);
+          console.log("Questions ----- ", results);
           vm.questions = results.data
           vm.serverService.questions = results.data;
         })
@@ -116,9 +116,6 @@
       // console.log("Key is up... ", $event.keyCode);
       socket.emit('on message', messageInfo);
 
-
-
-
       $scope.$applyAsync(function() {
         $scope.connected = 'TRUE';
       });
@@ -133,7 +130,21 @@
 
       if (vm.inputText == "[a-b]*" || vm.inputText == "pass") {
         console.log("You solved the regex")
-        vm.questionIndex ++;
+        vm.questionIndex++;
+
+
+        var messageInfo = {
+          username: username,
+          room: vm.serverService.room.name,
+          msg: "Whatever"
+        }
+
+        socket.emit('user pass', messageInfo);
+
+        $scope.$applyAsync(function() {
+          $scope.connected = 'TRUE';
+        });
+
       }
 
       // var messageInfo = {
