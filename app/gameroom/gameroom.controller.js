@@ -135,6 +135,17 @@
 
         if (vm.questionIndex == vm.serverService.getQuestions().length - 1) {
           console.log("Win");
+
+
+          let info = {
+            username: username,
+            room: vm.serverService.room.name,
+            msg: "Whatever"
+          }
+
+          socket.emit('user win', info);
+
+
         } else {
 
           vm.questionIndex++;
@@ -190,6 +201,21 @@
       // vm.userStatus[_info.questionIndex] = _info.questionIndex;
 
       vm.userStatus[_info.username] = " passed question " + _info.questionIndex;
+
+
+      $scope.$applyAsync(function() {
+        $scope.connected = 'TRUE';
+      });
+    });
+
+
+
+    socket.on("user win", function(_info) {
+      // console.log("User ", _info.username, " passed question ", _info.questionIndex);
+
+      console.log("User ", _info.username, " won");
+
+      vm.userStatus[_info.username] = "Completed all the questions";
 
 
       $scope.$applyAsync(function() {
