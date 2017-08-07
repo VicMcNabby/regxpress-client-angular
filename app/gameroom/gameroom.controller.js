@@ -18,6 +18,8 @@
     vm.playerMessage = {};
     vm.showPlayer = {};
 
+    vm.inputText = "";
+
     vm.questionIndex = 0;
 
 
@@ -98,8 +100,8 @@
 
       console.log("Current room ", vm.serverService.room.name);
       if (txt == "[a-b]*" || txt == "pass") {
-        console.log("You solved the regex")
-        vm.questionIndex ++;
+        // console.log("You solved the regex")
+        // vm.questionIndex ++;
       }
       console.log("Username ", username);
       var messageInfo = {
@@ -122,6 +124,41 @@
       });
 
     }
+
+
+
+    vm.submitAnswer = function(username) {
+
+      console.log("INPUT TEXT -------- ", vm.inputText);
+
+      if (vm.inputText == "[a-b]*" || vm.inputText == "pass") {
+        console.log("You solved the regex")
+        vm.questionIndex ++;
+      }
+
+      // var messageInfo = {
+      //   socketId: "",
+      //   user: username,
+      //   room: vm.serverService.room.name,
+      //   // msg: $event.keyCode
+      //   msg: txt
+      //
+      // }
+
+      // console.log("Key is up... ", $event.keyCode);
+      // socket.emit('on message', messageInfo);
+
+
+
+      //
+      // $scope.$applyAsync(function() {
+      //   $scope.connected = 'TRUE';
+      // });
+
+    }
+
+
+
 
     socket.on("on message", function(_messageInfo) {
       vm.messageInfo = _messageInfo;

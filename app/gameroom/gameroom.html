@@ -16,9 +16,9 @@
 
   <br>
 
-  <input class="form-control" ng-model="txt" type="text" ng-keyup="$ctrl.onKeyup($event, txt, $ctrl.serverService.userName)" placeholder="Example: [a-z]*abc">
+  <input class="form-control" ng-model="$ctrl.inputText" type="text" ng-keyup="$ctrl.onKeyup($event, txt, $ctrl.serverService.userName)" placeholder="Example: [a-z]*abc">
   <br>
-  <button type="button" class="btn btn-warning" name="button">Submit</button>
+  <button type="button" ng-click = "$ctrl.submitAnswer($ctrl.serverService.userName)" class="btn btn-warning" name="button">Submit</button>
 
 </div>
 
