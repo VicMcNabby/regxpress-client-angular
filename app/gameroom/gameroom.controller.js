@@ -132,21 +132,27 @@
 
       if (vm.inputText == "[a-b]*" || vm.inputText == "pass") {
         console.log("You solved the regex")
-        vm.questionIndex++;
+
+        if (vm.questionIndex == vm.serverService.getQuestions().length - 1) {
+          console.log("Win");
+        } else {
+
+          vm.questionIndex++;
 
 
-        var messageInfo = {
-          username: username,
-          questionIndex: vm.questionIndex,
-          room: vm.serverService.room.name,
-          msg: "Whatever"
+          var messageInfo = {
+            username: username,
+            questionIndex: vm.questionIndex,
+            room: vm.serverService.room.name,
+            msg: "Whatever"
+          }
+
+          socket.emit('user pass', messageInfo);
+
+          $scope.$applyAsync(function() {
+            $scope.connected = 'TRUE';
+          });
         }
-
-        socket.emit('user pass', messageInfo);
-
-        $scope.$applyAsync(function() {
-          $scope.connected = 'TRUE';
-        });
 
       }
 
@@ -178,7 +184,7 @@
 
 
     socket.on("user pass", function(_info) {
-      console.log("User ", _info.username , " passed question ", _info.questionIndex);
+      console.log("User ", _info.username, " passed question ", _info.questionIndex);
       //
       // vm.userStatus[_info.username] = _info.username;
       // vm.userStatus[_info.questionIndex] = _info.questionIndex;
