@@ -5,6 +5,11 @@
 <div class="container" style = "border:solid 0px #333333;">
 
   <h2 class="roomsHeader">Rooms Available: </h2><br>
+
+
+  <input id="first" ng-model="$ctrl.username" style = "width:40%; margin: 1vw auto;" placeholder="Enter your username..." class="form-control" autocomplete = "off" ng-required>
+
+
   <p style = "color:#AAAAAA;">{{$ctrl.serverService.message}}</p>
 
   <div class="rooms col-xs-12" ng-repeat="room in $ctrl.rooms">
@@ -18,7 +23,7 @@
       <div class="panel-body">
 
 
-        <input id="first" ng-model="$ctrl.username" placeholder="Enter your username..." class="form-control" autocomplete = "off" ng-required>
+        <!-- <input id="first" ng-model="$ctrl.username" placeholder="Enter your username..." class="form-control" autocomplete = "off" ng-required> -->
 
         <br>
         <!-- <button class = "btn btn-blue" type="button" ui-sref = "gameroom" ng-click="$ctrl.joinRoom(room)">JOIN</button> -->

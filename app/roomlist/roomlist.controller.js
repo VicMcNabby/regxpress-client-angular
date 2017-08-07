@@ -90,10 +90,10 @@
 
         vm.serverService.message = "waiting for other players to join";
 
-        console.log(vm.serverService.getUsers().length - 1, " joined the room");
+        console.log(vm.serverService.getUsers().length, " joined the room");
         //
         //
-        if (vm.serverService.getUsers().length - 1 >= vm.serverService.room.max_numplayers) {
+        if (vm.serverService.getUsers().length >= vm.serverService.room.max_numplayers) {
           console.log("The game should start now");
 
           let info = {
