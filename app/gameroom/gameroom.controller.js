@@ -111,7 +111,7 @@
         user: username,
         room: vm.serverService.room.name,
         // msg: $event.keyCode
-        msg: txt
+        msg: vm.inputText
 
       }
 
@@ -179,7 +179,7 @@
 
     socket.on("user pass", function(_info) {
       console.log("User ", _info.username , " passed question ", _info.questionIndex);
-      // 
+      //
       // vm.userStatus[_info.username] = _info.username;
       // vm.userStatus[_info.questionIndex] = _info.questionIndex;
 
