@@ -13,6 +13,8 @@
     vm.serverService = ServerService;
     vm.numPlayers = 0;
 
+    vm.roomsUsers = {};
+
 
     vm.changeState = function() {
       $state.go('gameroom');
@@ -24,7 +26,35 @@
         .then(results => {
           // console.log(results);
           vm.rooms = results.data
+          socket.emit("get updates", info);
+
         })
+
+        var info = {};
+
+
+        socket.on("get updates", function(roomsInfo) {
+          // console.log("Rooms coming from the server ", roomsInfo.rooms[0].users.length);
+
+
+          for (var i = 0; i < roomsInfo.rooms.length; i++) {
+          // for (var i = 0; i < vm.rooms.length; i++) {
+
+            vm.roomsUsers[roomsInfo.rooms[i].name] = roomsInfo.rooms[i].users.length;
+
+            if(!roomsInfo.rooms[i] ) {
+              vm.roomsUsers[roomsInfo.rooms[i].name] = 0;
+            }
+          }
+
+          $scope.$applyAsync(function() {
+            $scope.connected = 'TRUE';
+          });
+
+
+        });
+
+
     }
 
     vm.getInfo = function(room) {
@@ -107,6 +137,9 @@
           });
 
         }
+
+        socket.emit("get updates", info);
+
 
         $scope.$applyAsync(function() {
           $scope.connected = 'TRUE';

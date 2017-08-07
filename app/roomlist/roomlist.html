@@ -17,7 +17,7 @@
       <div class="panel-heading" style = "background:#222222;">
         <p style = "float:left; font-size:2rem;">{{room.name}}</p>
         <p style = "float:right;">
-          {{room.max_numplayers}} players
+          {{$ctrl.roomsUsers[room.name] || 0}} / {{room.max_numplayers}} players
         </p>
       </div>
       <div class="panel-body">
