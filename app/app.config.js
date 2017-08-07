@@ -19,6 +19,11 @@
         url: '/room',
 
         component: 'gameRoom'
+      }).state('win', {
+        // url: '/room/:id',
+        url: '/win',
+
+        component: 'win'
       })
 
     $urlServiceProvider.rules.otherwise({

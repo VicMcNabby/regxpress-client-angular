@@ -10,7 +10,7 @@
 
 
   // function gameRoomController($stateParams, $http) {
-  function gameRoomController(ServerService, $scope, $http) {
+  function gameRoomController(ServerService, $scope, $http, $state) {
 
     const vm = this;
     vm.serverService = ServerService;
@@ -144,6 +144,8 @@
           }
 
           socket.emit('user win', info);
+          $state.go('win');
+
 
 
         } else {
