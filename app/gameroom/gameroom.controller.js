@@ -52,6 +52,7 @@
           console.log("Questions ----- ", results);
           vm.questions = results.data
           vm.serverService.questions = results.data;
+          console.log("VM questionsssssssssss ", vm.serverService.questions)
         })
 
 
@@ -130,10 +131,14 @@
 
       console.log("INPUT TEXT -------- ", vm.inputText);
 
-      if (vm.inputText == "[a-b]*" || vm.inputText == "pass") {
+      // if (vm.inputText == "[a-b]*" || vm.inputText == "pass") {
+      if (vm.inputText == vm.serverService.questions[vm.questionIndex].answer || vm.inputText == "pass") {
+
         console.log("You solved the regex")
 
-        if (vm.questionIndex == vm.serverService.getQuestions().length - 1) {
+        // if (vm.questionIndex == vm.serverService.getQuestions().length - 1) {
+        if (vm.questionIndex == vm.serverService.questions.length - 1) {
+
           console.log("Win");
 
 

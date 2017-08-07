@@ -19,7 +19,9 @@ const socket = io.connect('http://localhost:3000');
     var room = undefined;
 
     // for testing purposes----
-    var questions = ["question1", "question2", "question3", "question4"];
+    // var questions = ["question1", "question2", "question3", "question4"];
+    var questions = [];
+
     var questionIndex = 0;
     // ------------------------
 

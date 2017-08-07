@@ -11,7 +11,9 @@
 
 <div class="well">
   <!-- <p>If a programmer wants to create at least 1 function flollowed by zero or three arrays; what is the reqular expression behind this pattern?</p> -->
-  <p>{{$ctrl.serverService.getQuestions()[$ctrl.questionIndex]}}</p>
+  <!-- <p>{{$ctrl.serverService.getQuestions()[$ctrl.questionIndex].question}}</p> -->
+  <p>{{$ctrl.serverService.questions[$ctrl.questionIndex].question}}</p>
+
 
 
   <br>
