@@ -147,6 +147,7 @@
 
       }
 
+
       // var messageInfo = {
       //   socketId: "",
       //   user: username,
@@ -168,6 +169,17 @@
 
     }
 
+
+
+
+
+
+    socket.on("user pass", function(_username) {
+      console.log("User passed the test ", _username);
+      $scope.$applyAsync(function() {
+        $scope.connected = 'TRUE';
+      });
+    });
 
 
 
