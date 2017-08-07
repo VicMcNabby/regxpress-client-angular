@@ -2,6 +2,13 @@ html, body {
   overflow: scroll;
 }
 
+.separator {
+  background: #555555;
+  width: 100%;
+  height: 1px;
+  margin: 4vw auto;
+}
+
 .appTitle {
   color: #44BBFF;
   font-family: 'Raleway', sans-serif;
@@ -17,6 +24,10 @@ html, body {
 .margined {
     margin: 1vw auto;
     width: 90%;
+}
+
+.joined {
+  background: #FF8888;
 }
 
 .navbar {

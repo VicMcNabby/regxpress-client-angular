@@ -18,7 +18,6 @@ const socket = io.connect('http://localhost:3000');
 
     var room = undefined;
 
-
     // for testing purposes----
     var questions = ["question1", "question2", "question3", "question4"];
     var questionIndex = 0;
@@ -58,6 +57,10 @@ const socket = io.connect('http://localhost:3000');
 
       getRoom() {
         return room;
+      },
+
+      getQuestions() {
+        return questions;
       }
 
     }

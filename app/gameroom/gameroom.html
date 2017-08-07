@@ -11,7 +11,9 @@
 
 <div class="well">
   <!-- <p>If a programmer wants to create at least 1 function flollowed by zero or three arrays; what is the reqular expression behind this pattern?</p> -->
-  <p>{{$ctrl.serverService.getQuestion()}}</p>
+  <p>{{$ctrl.serverService.getQuestions()[$ctrl.questionIndex]}}</p>
+
+
   <br>
 
   <input class="form-control" ng-model="txt" type="text" ng-keyup="$ctrl.onKeyup($event, txt, $ctrl.serverService.userName)" placeholder="Example: [a-z]*abc">
@@ -38,6 +40,7 @@
     <!-- <p style = "color:#EEEEEE; margin:1vw;">  {{$ctrl.messageInfo.user}} </p> -->
     <p style = "color:#EEEEEE; margin:1vw;"> {{$ctrl.playerMessage[player.name]}}</p>
 
+    <div class="separator"></div>
 
   </div>
 

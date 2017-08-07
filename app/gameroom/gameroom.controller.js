@@ -10,12 +10,19 @@
 
 
   // function gameRoomController($stateParams, $http) {
-  function gameRoomController(ServerService, $scope) {
+  function gameRoomController(ServerService, $scope, $http) {
 
     const vm = this;
     vm.serverService = ServerService;
     vm.messageInfo = undefined;
     vm.playerMessage = {};
+    vm.showPlayer = {};
+
+    vm.questionIndex = 0;
+
+
+
+    vm.flag = false;
 
     vm.$onInit = function() {
 
@@ -36,11 +43,12 @@
       //   }
       // ]
       //
-      // $http.get(questionsURL)
-      //   .then(results => {
-      //     console.log(results);
-      //     vm.questions = results.data
-      //   })
+      $http.get(questionsURL)
+        .then(results => {
+          console.log("Questions ----- " , results);
+          vm.questions = results.data
+          vm.serverService.questions = results.data;
+        })
 
 
       // console.log(vm.serverService.getUsers().length - 1, " joined the room");
@@ -91,6 +99,7 @@
       console.log("Current room ", vm.serverService.room.name);
       if (txt == "[a-b]*" || txt == "pass") {
         console.log("You solved the regex")
+        vm.questionIndex ++;
       }
       console.log("Username ", username);
       var messageInfo = {
@@ -116,8 +125,15 @@
 
     socket.on("on message", function(_messageInfo) {
       vm.messageInfo = _messageInfo;
+
       vm.playerMessage[_messageInfo.user] = _messageInfo.msg;
-      console.log("VESERVERICE ", vm.playerMessage[_messageInfo.user]);
+
+      vm.flag = vm.serverService.userName == _messageInfo.user;
+      //
+      // console.log("User names zzzz " , vm.serverService.userName)
+      // console.log("User names22 zzzz " , _messageInfo.user)
+
+      // console.log(" ", vm.playerMessage[_messageInfo.user]);
       $scope.$applyAsync(function() {
         $scope.connected = 'TRUE';
       });

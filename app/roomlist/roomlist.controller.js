@@ -14,7 +14,6 @@
     vm.numPlayers = 0;
 
 
-
     vm.changeState = function() {
       $state.go('gameroom');
     }
@@ -76,10 +75,15 @@
 
         console.log("VMS ", vm.users);
 
+
+
+
         vm.serverService.users = vm.users;
         let lastUserIndex = vm.users.length - 1;
         vm.serverService.message = `User ${vm.users[lastUserIndex].name} Joined the room`;
         vm.serverService.getUsers = getUsers
+
+        // vm.showPlayer[vm.userToCompare] = (vm.serverService.userName == vm.userToCompare)
 
 
 
