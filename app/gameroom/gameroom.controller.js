@@ -22,6 +22,8 @@
 
     vm.questionIndex = 0;
 
+    vm.userStatus = {};
+
 
 
     vm.flag = false;
@@ -135,6 +137,7 @@
 
         var messageInfo = {
           username: username,
+          questionIndex: vm.questionIndex,
           room: vm.serverService.room.name,
           msg: "Whatever"
         }
@@ -174,8 +177,15 @@
 
 
 
-    socket.on("user pass", function(_username) {
-      console.log("User passed the test ", _username);
+    socket.on("user pass", function(_info) {
+      console.log("User ", _info.username , " passed question ", _info.questionIndex);
+      // 
+      // vm.userStatus[_info.username] = _info.username;
+      // vm.userStatus[_info.questionIndex] = _info.questionIndex;
+
+      vm.userStatus[_info.username] = " passed question " + _info.questionIndex;
+
+
       $scope.$applyAsync(function() {
         $scope.connected = 'TRUE';
       });
