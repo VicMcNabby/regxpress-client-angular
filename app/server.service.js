@@ -9,6 +9,7 @@ const socket = io.connect('http://localhost:3000');
     .module("regXpress")
     .factory("ServerService", ServerService);
 
+
     var numPlayers = 0;
 
     var users = [];

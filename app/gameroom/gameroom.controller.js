@@ -132,6 +132,7 @@
       console.log("INPUT TEXT -------- ", vm.inputText);
 
       // if (vm.inputText == "[a-b]*" || vm.inputText == "pass") {
+      // if ( == vm.inputText vm.serverService.questions[vm.questionIndex].answer || vm.inputText == "pass") {
       if (vm.inputText == vm.serverService.questions[vm.questionIndex].answer || vm.inputText == "pass") {
 
         console.log("You solved the regex")

@@ -37,7 +37,7 @@
 
   <div ng-repeat = "player in $ctrl.serverService.getUsers()">
 
-    <p style = "color:#EEEEEE;">{{player.name}}</p>
+    <p style = "color:#EEEEEE;" ng-hide = "$ctrl.serverService.hideUser[player.name]">{{player.name}}</p>
 
     <!-- <p style = "color:#EEEEEE; margin:1vw;">  {{$ctrl.messageInfo.user}} </p> -->
     <p style = "color:#EEEEEE; margin:1vw;"> {{$ctrl.playerMessage[player.name]}}</p>
@@ -45,7 +45,7 @@
     <p style = "color:#EEEEEE">{{$ctrl.userStatus[player.name]}}</p>
 
 
-    <div class="separator"></div>
+    <div class="separator" ng-hide = "$ctrl.serverService.hideUser[player.name]"></div>
 
   </div>
 
