@@ -30,23 +30,6 @@
 
     vm.$onInit = function() {
 
-      // $http.get(roomURL + $stateParams.id)
-      //   .then(result => {
-      //     console.log(result);
-      //   })
-      //
-      //
-      // vm.users = [{
-      //     username: "StankyBob"
-      //   },
-      //   {
-      //     username: "FartHammer5000"
-      //   },
-      //   {
-      //     username: "FatFeetFreddyMac"
-      //   }
-      // ]
-      //
       $http.get(questionsURL)
         .then(results => {
           console.log("Questions ----- ", results);
@@ -175,7 +158,7 @@
 
       }
 
-
+      vm.inputText = "";
       // var messageInfo = {
       //   socketId: "",
       //   user: username,

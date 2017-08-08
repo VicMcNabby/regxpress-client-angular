@@ -1,8 +1,27 @@
 <nav class="navbar navbar-default">
-  <div class="container">
+  <div class="navbarButtons container">
     <div class="navbar-header">
-      <h1 class="appTitle" ui-sref="home">
-        reg<span style = "color:#DDDDDD;">X</span>press</h1>
+      <h1 ui-sref="home" class="appTitle">reg<span style = "color:#DDDDDD; font-family: 'Work Sans', cursive; font-size: 1.25em;">X</span>press</h1>
+    </div>
+    <button type="button" class="helpButton btn btn-info" data-toggle="modal" data-target="#helpModal">help</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="helpModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Regex Help</h4>
+        </div>
+        <div class="modal-body">
+          <img src='regexhelp.png' height="400px" width="750px"/>
+        </div>
+      </div>
+
     </div>
   </div>
+  </div>
+
 </nav>

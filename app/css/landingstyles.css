@@ -1,0 +1,223 @@
+.navbarButtons {
+  display: flex;
+  align-items: center;
+}
+
+.helpButton {
+  margin-top: 40px;
+  margin-left: 75%;
+  color: black;
+  background-color: #6A8D92;
+}
+
+.helpButton:hover {
+  background-color: #2C497F;
+}
+
+.modal-content {
+  width: 790px;
+  padding: auto;
+  background-color: #888c93;
+}
+
+.modal-header {
+  color: grey;
+  font-family: 'Roboto', sans-serif;
+  padding: 5px 10px 0px 10px;
+  background-color:#ced9e2;
+}
+
+.roomsButton {
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+
+
+@keyframes slidein {
+  from {
+    margin-left: 300%;
+    width: 80px;
+  }
+
+  to {
+    margin-right: 0%;
+    width: 80px;
+  }
+}
+
+@keyframes fade {
+  0% {
+    background-color: #011936;
+    border: 1px solid grey;
+    color: white;
+  }
+  100% {
+    background-color: #5D737E;
+    border: 1px solid black;
+    color: black;
+  }
+}
+
+.landingMain {
+  display: flex;
+  align-items: center;
+}
+
+.rightSide {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 33%;
+  margin: auto;
+}
+
+.pageInfoHeader {
+  color: #6A8D92;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.pageInfo {
+  font-family: 'Roboto', sans-serif;
+  color: #6A8D92;
+}
+
+.roomsButton {
+  box-shadow: 1px 1px 1px black;
+  color: black;
+  background-color: #2C497F;
+  height: 40px;
+  width: 80px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.appTitle {
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  border: 1px solid black;
+  padding: 5px 10px 0px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  animation: fade 9s;
+  background-color: #5D737E;
+}
+
+.roomsButton:hover {
+  color: black;
+  background-color:#6A8D92;
+}
+
+.navbar {
+  background-color: #011936;
+  border: black;
+}
+
+body {
+  background: linear-gradient(to right, #13262F, #4F5D75);
+}
+
+.imageDemo {
+  height: 400px;
+  width: 500px;
+}
+
+.game {
+  width: 500px;
+  height: 400px;
+  margin: 10px;
+  /*float: left;*/
+  border: 10px solid #011936;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  box-shadow: 1px 1px 2px grey;
+  border-radius: 6px;
+  cursor: default;
+}
+
+.game .mask, .game .content {
+  width: 500px;
+  height: 400px;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0
+}
+
+.game img {
+  display: block;
+  position: relative
+}
+
+.game h2 {
+  /*text-transform: uppercase;*/
+  color: #fff;
+  text-align: center;
+  position: relative;
+  font-size: 20px;
+  padding: 10px;
+  background: #011936;
+  color: #CAFFB9;
+  margin: 20px 0 0 0
+}
+
+.game p {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 18px;
+  position: relative;
+  color: #fff;
+  padding: 10px 20px 20px;
+  text-align: center
+}
+
+.game a.info:hover {
+  box-shadow: 0 0 5px #000
+}
+
+.game-info img {
+  transition: all 0.5s ease-out;
+  opacity: 1;
+}
+
+.game-info .mask {
+  background-color: #6A8D92;
+  transform: rotate(0deg) scale(1);
+  opacity: 0;
+  transition: all 0.5s ease-out;
+  transform: translateY(-200px) rotate(180deg);
+}
+
+.game-info h2 {
+  transform: translateY(-200px);
+  transition: all 0.5s ease-in-out;
+}
+
+.game-info p {
+  transform: translateY(-200px);
+  transition: all 0.5s ease-in-out;
+}
+
+.game-info:hover img {
+  transform: rotate(360deg) scale(0);
+  opacity: 0;
+}
+
+.game-info:hover .mask {
+  opacity: 1;
+  transform: translateY(0px) rotate(0deg);
+  transition-delay: 0.7s;
+}
+
+.game-info:hover h2 {
+  transform: translateY(0px);
+  transition-delay: 0.5s;
+}
+
+.game-info:hover p {
+  transform: translateY(0px);
+  transition-delay: 0.4s;
+}

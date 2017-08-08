@@ -9,18 +9,6 @@ html, body {
   margin: 4vw auto;
 }
 
-.appTitle {
-  color: #44BBFF;
-  font-family: 'Raleway', sans-serif;
-  /*border: 1px solid #E8F7EE;*/
-  padding: 1px 15px 5px 15px;
-  /*border-radius: 6px;*/
-  /*border-top: solid 0.1px #333333;*/
-  /*border-bottom: solid 0.1px #333333;*/
-  /*box-shadow: 2px 2px 1px #E8F7EE;*/
-  cursor: pointer;
-}
-
 .margined {
     margin: 1vw auto;
     width: 90%;
@@ -30,114 +18,79 @@ html, body {
   background: #FF8888;
 }
 
-.navbar {
-  /*background-color: #011936;*/
-  background: #222222;
-  border: black;
-}
-
-body {
-  height: 100vh;
-  /*background: linear-gradient(to right, #13262F, #4F5D75);*/
-  background: #222222;
-}
-
-main {
-  /*width:60vw;
-  margin: 1vw auto;*/
-}
-
 .btn-blue {
   background: #6699FF;
   color:#EEEEEE;
   margin: 1vw auto;
   text-align: center;
+  border: 0px;
+  /*box-shadow: 1px 1px 1px darkgrey;*/
+}
+.btn-blue:hover {
+  background: #496cb2;
+}
+
+.rooms {
+  margin: 3%;
+}
+
+.roomName {
+  font-family: 'Roboto' , sans-serif;
 }
 
 .roomsHeader {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   color: #E8F7EE;
   text-align: center;
   /*text-shadow: 2px 2px 3px #000000;*/
 }
 
-.roomCard:hover {
-  /*box-shadow: 6px 6px 5px #000000;*/
-}
-
 .panel-heading {
-  /*color: white !important;*/
-  /*background: linear-gradient(to right, #13262F, #4F5D75)*/
   background: #222222;
   color: #EEEEEE;
 }
 
 .panel-body {
-  /*background-color: #C9D6EA;*/
   background: #222222;
   color: #DDDDDD;
 }
 
 .joinButton {
-  /*box-shadow: 2px 2px 1px #13262F;*/
-}
-
-.modal-content {
-  width: 50%;
-  margin: auto;
-  background: #222222;
-  color: #EEEEEE;
-}
-
-.modal-header {
-  /*background: linear-gradient(to right, #13262F, white);*/
-  background: #222222;
-}
-
-.modal-title {
-  color: #E8F7EE;
+  box-shadow: 2px 2px 1px #13262F;
 }
 
 a {
   text-decoration: none;
 }
 
-.landingPageHeader {
+/*.landingPageHeader {
   font-family: 'Raleway', sans-serif;
   color: #E8F7EE;
   text-align: center;
   text-shadow: 2px 2px 3px #000000;
-}
-
-.roomsButton {
-  /*margin: 30% 0 0 45%;*/
-  margin: 1vw auto;
-  /*box-shadow: 2px 2px 1px #13262F;*/
-  color: #EEEEEE;
-  /*background-color: #CAFFB9;*/
-  background: #4488FF;
-  text-align: center;
-  display: block;
-  width: 30%;
-}
-
+}*/
+/*
 
 /*
     Game Room
   */
 
 .gameroomHeader {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   color: #E8F7EE;
+}
+
+.questionBox {
+  background:#4F5D75;
 }
 
 .questions {
-  font-family: 'Raleway', sans-serif;
-  color: #E8F7EE;
+  font-family: 'Work Sans', sans-serif;
+  color: #d6d8db;
 }
 
 .answers {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   color: #E8F7EE;
 }
 

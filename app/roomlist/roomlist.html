@@ -12,10 +12,10 @@
 
   <p style = "color:#AAAAAA;">{{$ctrl.serverService.message}}</p>
 
-  <div class="rooms col-xs-12" ng-repeat="room in $ctrl.rooms">
+  <div class="rooms col-xs-5" ng-repeat="room in $ctrl.rooms">
     <div class="roomCard" style = "border-bottom: solid 2px #333333;">
       <div class="panel-heading" style = "background:#222222;">
-        <p style = "float:left; font-size:2rem;">{{room.name}}</p>
+        <p class="roomName" style = "float:left; font-size:2rem;">{{room.name}}</p>
         <p style = "float:right;">
           {{$ctrl.roomsUsers[room.name] || 0}} / {{room.max_numplayers}} players
         </p>
@@ -27,7 +27,7 @@
 
         <br>
         <!-- <button class = "btn btn-blue" type="button" ui-sref = "gameroom" ng-click="$ctrl.joinRoom(room)">JOIN</button> -->
-        <button class = "btn btn-blue" type="button" ng-class = "{joined:true}"ng-click="$ctrl.joinRoom(room)">JOIN</button>
+        <button class = "btn-block btn-blue" type="button" ng-class = "{joined:true}"ng-click="$ctrl.joinRoom(room)">JOIN</button>
 
       </div>
     </div>

@@ -9,10 +9,10 @@
 
 <h3 style="color:#DDDDDD;">You: {{$ctrl.serverService.userName}}</h3>
 
-<div class="well">
+<div class="questionBox well">
   <!-- <p>If a programmer wants to create at least 1 function flollowed by zero or three arrays; what is the reqular expression behind this pattern?</p> -->
   <!-- <p>{{$ctrl.serverService.getQuestions()[$ctrl.questionIndex].question}}</p> -->
-  <p>{{$ctrl.serverService.questions[$ctrl.questionIndex].question}}</p>
+  <p class="questions">{{$ctrl.serverService.questions[$ctrl.questionIndex].question}}</p>
 
 
 
@@ -20,7 +20,7 @@
 
   <input class="form-control" ng-model="$ctrl.inputText" type="text" ng-keyup="$ctrl.onKeyup($event, txt, $ctrl.serverService.userName)" placeholder="Example: [a-z]*abc">
   <br>
-  <button type="button" ng-click = "$ctrl.submitAnswer($ctrl.serverService.userName)" class="btn btn-warning" name="button">Submit</button>
+  <button type="button" ng-click = "$ctrl.submitAnswer($ctrl.serverService.userName)" class="btn btn-info" name="button">Submit</button>
 
 </div>
 
