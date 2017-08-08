@@ -34,11 +34,8 @@
 
 
         socket.on("get updates", function(roomsInfo) {
-          // console.log("Rooms coming from the server ", roomsInfo.rooms[0].users.length);
-
 
           for (var i = 0; i < roomsInfo.rooms.length; i++) {
-          // for (var i = 0; i < vm.rooms.length; i++) {
 
             vm.roomsUsers[roomsInfo.rooms[i].name] = roomsInfo.rooms[i].users.length;
 
@@ -69,16 +66,12 @@
 
     vm.joinRoom = function(room) {
 
-      console.log("Joining Room");
-      // vm.serverService.joinRoom(room, vm.username)
-
       var roomObj = {
         name: room.name,
         users: [],
         numPlayersJoined: 0,
         max_numplayers: room.max_numplayers
       }
-
 
       var info = {
         user: vm.username,
@@ -88,10 +81,7 @@
 
       vm.serverService.room = roomObj;
 
-      // console.log(info);
-
       socket.emit("room", info);
-
 
 
       socket.on("room", function(_info) {
@@ -105,24 +95,15 @@
 
         console.log("VMS ", vm.users);
 
-
-
-
         vm.serverService.users = vm.users;
         let lastUserIndex = vm.users.length - 1;
-        vm.serverService.message = `User ${vm.users[lastUserIndex].name} Joined the room`;
+        vm.serverService.message = `${vm.users[lastUserIndex].name} Joined the room`;
         vm.serverService.getUsers = getUsers
 
-        // vm.showPlayer[vm.userToCompare] = (vm.serverService.userName == vm.userToCompare)
+        // vm.serverService.message = "waiting for other players to join";
 
+        // console.log(vm.serverService.getUsers().length, " joined the room");
 
-
-
-        vm.serverService.message = "waiting for other players to join";
-
-        console.log(vm.serverService.getUsers().length, " joined the room");
-        //
-        //
         if (vm.serverService.getUsers().length >= vm.serverService.room.max_numplayers) {
           console.log("The game should start now");
 
@@ -130,7 +111,10 @@
             numPlayers: vm.serverService.room.max_numplayers,
             room: vm.serverService.room
           }
-          socket.emit("start game", info);
+          socket.emit("game ready", info);
+
+          // socket.emit("start game", info);
+
 
           $scope.$applyAsync(function() {
             $scope.connected = 'TRUE';
@@ -146,7 +130,6 @@
         });
 
         vm.serverService.userName = vm.username;
-        // $window.location.href = '/room';
 
       });
 
@@ -155,22 +138,33 @@
 
         console.log("NumPlayers ", _info.numPlayers);
         console.log("To room ", _info.room);
-        for (var i = 0; i < _info.numPlayers; i++) {
-          // console.log("USER ", info.room.users[i].name)
-          // addNewPlayer(serverInfo.room.users[i].name);
-
+        // for (var i = 0; i < _info.numPlayers; i++) {
           $state.go('gameroom');
-
-          vm.serverService.message = "The game will start in 10 seconds";
-
-        }
-
+        // }
 
       });
 
+      // socket.on("game ready", function(_info) {
+      //
+      //   console.log("NumPlayers ", _info.numPlayers);
+      //   console.log("To room ", _info.room);
+      //   // for (var i = 0; i < _info.numPlayers; i++) {
+      //     // $state.go('gameroom');
+      //   // }
+      //
+      // });
+
       socket.on("count down", function(count) {
         console.log("Time to start ", count);
-        vm.serverService.message = `Time to start ${count / 1000}`;
+        // vm.serverService.message = `Time to start ${count}`;
+        vm.serverService.message = "Time to start " + count + " seconds";
+
+        if(count <= 0) {
+          count = 0;
+          vm.serverService.message = "Game is started";
+
+        }
+
 
 
         $scope.$applyAsync(function() {
@@ -189,19 +183,9 @@
 
       });
 
-
-
-
-      // $state.go('gameroom');
-
-
-
-      // vm.username = ''
-
     }
 
     getUsers = function() {
-      // console.log("Users ======= ", vm.users);
       return vm.users;
     }
   }

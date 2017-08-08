@@ -1,4 +1,6 @@
 const socket = io.connect('http://localhost:3000');
+// const socket = io.connect('https://regxpress.herokuapp.com');
+
 
 
 (function() {
@@ -6,7 +8,6 @@ const socket = io.connect('http://localhost:3000');
   angular
     .module("regXpress")
     .factory("ServerService", ServerService);
-
 
     var numPlayers = 0;
 
